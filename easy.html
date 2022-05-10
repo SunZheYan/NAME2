@@ -17,42 +17,42 @@
     <h1>輸入名字</h1>
     <script>
         /*
-                                                                 window.addEventListener('load', async() => {
-                                                                 if (window.ethereum) {
-                                                                 web3js = new Web3(window.ethereum);
-                                                                 const accounts = await window.ethereum.request({
-                                                                 method: 'eth_requestAccounts'
-                                                                 });
-                                                                startApp();
-                                                                FB.init();
-                                                                } else if (window.web3) {
-                                                            web3js = new Web3(web3.currentProvider);
-                                                                startApp();
-                                                                FB.init();
-                                                                } else {
-                                                                alert("請先安裝MetaMask");
-                                                                }
-                                                                });
-                                                                */
+                                                                         window.addEventListener('load', async() => {
+                                                                         if (window.ethereum) {
+                                                                         web3js = new Web3(window.ethereum);
+                                                                         const accounts = await window.ethereum.request({
+                                                                         method: 'eth_requestAccounts'
+                                                                         });
+                                                                        startApp();
+                                                                        FB.init();
+                                                                        } else if (window.web3) {
+                                                                    web3js = new Web3(web3.currentProvider);
+                                                                        startApp();
+                                                                        FB.init();
+                                                                        } else {
+                                                                        alert("請先安裝MetaMask");
+                                                                        }
+                                                                        });
+                                                                        */
+        /*
+                $(".btn.login").click(async() => { //連結metamask
+                    try {
 
-        $(".btn.login").click(async() => { //連結metamask
-            try {
+                        web3js = new Web3(window.ethereum); //建立web3連結
+                        const accounts = await window.ethereum.request({
+                            method: 'eth_requestAccounts'
+                        });
+                        user = accounts[0];
+                        $("#username").html(user);
 
-                web3js = new Web3(window.ethereum); //建立web3連結
-                const accounts = await window.ethereum.request({
-                    method: 'eth_requestAccounts'
-                });
-                user = accounts[0];
-                $("#username").html(user);
+                        startApp();
+                        userAccount = web3js.currentProvider.selectedAddress; //不明用途，取自CrappyBird 893行
 
-                startApp();
-                userAccount = web3js.currentProvider.selectedAddress; //不明用途，取自CrappyBird 893行
-
-            } catch (error) {
-                alert(error.message);
-            }
-        })
-
+                    } catch (error) {
+                        alert(error.message);
+                    }
+                })
+        */
         /*
         $(document).ready(function() {
             $(".ByAccount").click(function() {
@@ -75,17 +75,19 @@
 
 
 
-        /*
-                $(document).ready(function() {
-                    $(".hid").click(function() {
-                        userAccount = web3.currentProvider.selectedAddress;
-                        var readbyAccount = document.getElementById("readbyAccount").value;
-                        $(".test").hide();
 
-                        alert(userAccount);
-                        $("#RP").html(userAccount);
-                    });
-                    $(".show").click(function() {
+        $(document).ready(function() {
+            $(".hid").click(function() {
+
+                $(".test").hide();
+            });
+            /*
+                                    alert(userAccount);
+                                    $("#RP").html(userAccount);
+                                    */
+        });
+        /*
+                   $(".show").click(function() {
                         web3js = new Web3(window.ethereum);
                         const accounts = await window.ethereum.request({
                             method: 'eth_requestAccounts'
