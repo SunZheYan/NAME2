@@ -17,42 +17,43 @@
     <h1>輸入名字</h1>
     <script>
         /*
-                                                 window.addEventListener('load', async() => {
-                                                 if (window.ethereum) {
-                                                 web3js = new Web3(window.ethereum);
-                                                 const accounts = await window.ethereum.request({
-                                                 method: 'eth_requestAccounts'
-                                                 });
-                                                startApp();
-                                                FB.init();
-                                                } else if (window.web3) {
-                                            web3js = new Web3(web3.currentProvider);
-                                                startApp();
-                                                FB.init();
-                                                } else {
-                                                alert("請先安裝MetaMask");
-                                                }
-                                                });
-                                                */
+                                                         window.addEventListener('load', async() => {
+                                                         if (window.ethereum) {
+                                                         web3js = new Web3(window.ethereum);
+                                                         const accounts = await window.ethereum.request({
+                                                         method: 'eth_requestAccounts'
+                                                         });
+                                                        startApp();
+                                                        FB.init();
+                                                        } else if (window.web3) {
+                                                    web3js = new Web3(web3.currentProvider);
+                                                        startApp();
+                                                        FB.init();
+                                                        } else {
+                                                        alert("請先安裝MetaMask");
+                                                        }
+                                                        });
+                                                        */
+
+        $(".btn.login").click(async() => { //連結metamask
+            try {
+
+                web3js = new Web3(window.ethereum); //建立web3連結
+                const accounts = await window.ethereum.request({
+                    method: 'eth_requestAccounts'
+                });
+                user = accounts[0];
+                $("#username").html(user);
+
+                startApp();
+                userAccount = web3js.currentProvider.selectedAddress; //不明用途，取自CrappyBird 893行
+
+            } catch (error) {
+                alert(error.message);
+            }
+        })
+
         /*
-                $(".btn.login").click(async() => { //連結metamask
-                    try {
-                        
-                        web3js = new Web3(window.ethereum); //建立web3連結
-                         const accounts = await window.ethereum.request({
-                         method: 'eth_requestAccounts'
-                        });
-                        user = accounts[0];
-                        $("#username").html(user);
-
-                        startApp();
-                        userAccount = web3js.currentProvider.selectedAddress; //不明用途，取自CrappyBird 893行
-
-                    } catch (error) {
-                        alert(error.message);
-                    }
-                })
-        */
         $(document).ready(function() {
             $(".ByAccount").click(function() {
                 web3js = new Web3(web3.currentProvider);
@@ -66,17 +67,13 @@
             userAccount = web3.currentProvider.selectedAddress;
         }
 
+*/
 
 
 
 
 
 
-        function display_alert() {
-            userAccount = web3.currentProvider.selectedAddress;
-
-            return alert(123);
-        }
 
         /*
                 $(document).ready(function() {
@@ -102,11 +99,11 @@
 
         <input name="val" type="text" id="readbyAccount" onchange="myFunction()" />
         <button onclick="myFunction(candidate)">連線</button>
-        <button class="ByAccount">連</button>
+        <button class="btn btn-warning btn-lg login">連</button>
         <input type="button" onclick="myfunction()" value="Display alert box" />
         <div id="msg"></div>
         <p class="test">这是一个段落。</p>
-        <p>这是另外一个段落。</p>
+        <p>这是另外一。</p>
         <button class="hid">藏</button>
         <button class="show">顯</button>
         <div>
