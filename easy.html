@@ -17,23 +17,23 @@
     <h1>輸入名字</h1>
     <script>
         /*
-                                                                         window.addEventListener('load', async() => {
-                                                                         if (window.ethereum) {
-                                                                         web3js = new Web3(window.ethereum);
-                                                                         const accounts = await window.ethereum.request({
-                                                                         method: 'eth_requestAccounts'
-                                                                         });
-                                                                        startApp();
-                                                                        FB.init();
-                                                                        } else if (window.web3) {
-                                                                    web3js = new Web3(web3.currentProvider);
-                                                                        startApp();
-                                                                        FB.init();
-                                                                        } else {
-                                                                        alert("請先安裝MetaMask");
-                                                                        }
-                                                                        });
-                                                                        */
+                                                                                 window.addEventListener('load', async() => {
+                                                                                 if (window.ethereum) {
+                                                                                 web3js = new Web3(window.ethereum);
+                                                                                 const accounts = await window.ethereum.request({
+                                                                                 method: 'eth_requestAccounts'
+                                                                                 });
+                                                                                startApp();
+                                                                                FB.init();
+                                                                                } else if (window.web3) {
+                                                                            web3js = new Web3(web3.currentProvider);
+                                                                                startApp();
+                                                                                FB.init();
+                                                                                } else {
+                                                                                alert("請先安裝MetaMask");
+                                                                                }
+                                                                                });
+                                                                                */
         /*
                 $(".btn.login").click(async() => { //連結metamask
                     try {
@@ -53,39 +53,39 @@
                     }
                 })
         */
-        /*
+
         $(document).ready(function() {
             $(".ByAccount").click(function() {
-                web3js = new Web3(web3.currentProvider);
-                startApp();
-            });
-        });
-
-        function startApp() {
-            var name1 = '0x02d8949693f141335ee4266bfa6dab0216690491';
-            search = new web3js.eth.Contract(NAME, name1);
-            userAccount = web3.currentProvider.selectedAddress;
-        }
-
-*/
-
-
-
-
-
-
-
-
-        $(document).ready(function() {
-            $(".hid").click(function() {
-
                 $(".test").hide();
             });
-            /*
-                                    alert(userAccount);
-                                    $("#RP").html(userAccount);
-                                    */
         });
+        /*
+                function startApp() {
+                    var name1 = '0x02d8949693f141335ee4266bfa6dab0216690491';
+                    search = new web3js.eth.Contract(NAME, name1);
+                    userAccount = web3.currentProvider.selectedAddress;
+                }
+
+        */
+
+
+
+
+
+
+
+        /*
+                $(document).ready(function() {
+                    $(".hid").click(function() {
+
+                        $(".test").hide();
+                    });
+                    
+                                            alert(userAccount);
+                                            $("#RP").html(userAccount);
+                                            
+                });
+                */
         /*
                    $(".show").click(function() {
                         web3js = new Web3(window.ethereum);
@@ -101,7 +101,7 @@
 
         <input name="val" type="text" id="readbyAccount" onchange="myFunction()" />
         <button onclick="myFunction(candidate)">連線</button>
-        <button class="btn btn-warning btn-lg login">連</button>
+        <button class="ByAccount">連</button>
         <input type="button" onclick="myfunction()" value="Display alert box" />
         <div id="msg"></div>
         <p class="test">这是一个段落。</p>
