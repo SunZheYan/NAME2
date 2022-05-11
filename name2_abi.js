@@ -1,40 +1,38 @@
 var NAME = [{
-        "constant": true,
         "inputs": [{
+            "internalType": "uint256",
+            "name": "_name",
+            "type": "uint256"
+        }],
+        "name": "namein",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+            "internalType": "address",
             "name": "addr",
             "type": "address"
         }],
         "name": "getHighScoreByAddress",
         "outputs": [{
+            "internalType": "uint256",
             "name": "",
-            "type": "string"
+            "type": "uint256"
         }],
-        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "constant": true,
         "inputs": [],
         "name": "whatIsMyNamepublic",
         "outputs": [{
+            "internalType": "uint256",
             "name": "",
-            "type": "string"
+            "type": "uint256"
         }],
-        "payable": false,
         "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [{
-            "name": "_name",
-            "type": "string"
-        }],
-        "name": "namein",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
         "type": "function"
     }
 ]
