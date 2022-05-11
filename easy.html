@@ -16,24 +16,23 @@
 <body class="container">
     <h1>輸入名字</h1>
     <script>
-        /*
-                                                                                 window.addEventListener('load', async() => {
-                                                                                 if (window.ethereum) {
-                                                                                 web3js = new Web3(window.ethereum);
-                                                                                 const accounts = await window.ethereum.request({
-                                                                                 method: 'eth_requestAccounts'
-                                                                                 });
-                                                                                startApp();
-                                                                                FB.init();
-                                                                                } else if (window.web3) {
-                                                                            web3js = new Web3(web3.currentProvider);
-                                                                                startApp();
-                                                                                FB.init();
-                                                                                } else {
-                                                                                alert("請先安裝MetaMask");
-                                                                                }
-                                                                                });
-                                                                                */
+        window.addEventListener('load', async() => {
+            if (window.ethereum) {
+                web3js = new Web3(window.ethereum);
+                const accounts = await window.ethereum.request({
+                    method: 'eth_requestAccounts'
+                });
+                startApp();
+                FB.init();
+            } else if (window.web3) {
+                web3js = new Web3(web3.currentProvider);
+                startApp();
+                FB.init();
+            } else {
+                alert("請先安裝MetaMask");
+            }
+        });
+
         /*
                 $(".btn.login").click(async() => { //連結metamask
                     try {
@@ -53,20 +52,22 @@
                     }
                 })
         */
-
-        $(document).ready(function() {
-            $(".ByAccount").click(function() {
-                $(".test").hide();
-            });
-        });
         /*
-                function startApp() {
-                    var name1 = '0x02d8949693f141335ee4266bfa6dab0216690491';
-                    search = new web3js.eth.Contract(NAME, name1);
-                    userAccount = web3.currentProvider.selectedAddress;
-                }
+                $(document).ready(function() {
+                    $(".ByAccount").click(function() {
+                        $(".test").hide();
+                    });
+                });
+                */
 
-        */
+        function startApp() {
+            var name1 = '0x02d8949693f141335ee4266bfa6dab0216690491';
+            search = new web3js.eth.Contract(NAME, name1);
+            userAccount = web3.currentProvider.selectedAddress;
+
+        }
+
+
 
 
 
@@ -96,6 +97,33 @@
                     });
                 });
                 */
+        $(document).ready(function() {
+            $(".ByAccount").click(function() {
+
+                userAccount = web3.currentProvider.selectedAddress;
+                var balance = web3.eth.getBalance(0xbF3868FF1393aAD3816Cd461C5891EB75A5cC213);
+                alert(balance);
+
+            });
+        });
+        $(document).ready(function() {
+            $(".show").click(async function() {
+                userAccount = web3.currentProvider.selectedAddress;
+                var savedscore = await search.methods.whatIsMyNamepublic().call({
+                    from: userAccount
+                });
+                alert(savedscore);
+            });
+        });
+        $(document).ready(function() {
+            $(".hid").click(async function() {
+                userAccount = web3.currentProvider.selectedAddress;
+                addresname = document.getElementById("readbyAccount").value;
+                var savedscore = await search.methods.namein(addresname).send({
+                    from: userAccount
+                });
+            });
+        });
     </script>
     <div class="table-responsive">
 
@@ -106,8 +134,8 @@
         <div id="msg"></div>
         <p class="test">这是一个段落。</p>
         <p>这是另外一</p>
-        <button class="hid">藏</button>
-        <button class="show">顯</button>
+        <button class="hid">傳輸</button>
+        <button class="show">查詢</button>
         <div>
             <span id="RP">show RP</span>
         </div>
